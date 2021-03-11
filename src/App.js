@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+
+import { StyledContainer } from './components/Styles';  
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+
+const App = () => {
+
+    return (
+       <Router>
+            <StyledContainer>
+                <Switch>
+                    <Route path='/signup'>
+                        <Signup/>
+                    </Route>
+                    <Route path='/login'>
+                        <Login/>
+                    </Route>
+                    <Route path='/dashboard'>
+                        <Dashboard/>
+                    </Route>
+                    <Route path='/'>
+                        <Home/>
+                    </Route>
+                </Switch>
+                {/* <Dashboard /> */}
+            </StyledContainer>
+        </Router>  
+        
+    );
+};
 
 export default App;
