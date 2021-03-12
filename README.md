@@ -1,6 +1,6 @@
 ### Signin, Signup ad Logout App with React Hooks, Redux and Styled-components
 
-You need to clone and run [login-app-backend](https://github.com/Vuyisanani/login-app-backend).
+No longer need to clone this. have deployed the backedn, but if you want to see the code for backend[login-app-backend](https://github.com/Vuyisanani/login-app-backend).
 
 ### Available Scripts
 
