@@ -4,8 +4,6 @@ import { StyledTittle, StyledSubTitle, StyledLogo, StyledButton, ButtonGroup } f
 
 import Logo from './../assets/logo.jpeg';
 
-
-
 const Home = ()=> {
 
     return (

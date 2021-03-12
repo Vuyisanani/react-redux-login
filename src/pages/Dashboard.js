@@ -1,18 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { StyledTittle, 
-    StyledSubTitle, 
     StyledLogo, 
     StyledButton, 
     ButtonGroup,
     StyledFormArea,
-    colors
  } 
  from './../components/Styles';
 
+ import { connect } from 'react-redux';
+ import { logoutUser } from './../auth/actions/userActions';
+
 import Logo from './../assets/logo.jpeg';
 
-const Dashboard = ()=> {
+const Dashboard = ({logoutUser})=> {
+    const history = useHistory();
 
     return (
         <div>
@@ -35,7 +38,7 @@ const Dashboard = ()=> {
                 </StyledTittle>
                 
                 <ButtonGroup>
-                    <StyledButton to="/">Logout</StyledButton>
+                    <StyledButton to="#" onClick={() => logoutUser(history)}>Logout</StyledButton>
                 </ButtonGroup>
             </StyledFormArea>
             
@@ -43,4 +46,4 @@ const Dashboard = ()=> {
     );
 };
 
-export default Dashboard;
+export default connect(null, {logoutUser})(Dashboard);

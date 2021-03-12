@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 import Dashboard from './pages/Dashboard';
@@ -6,36 +7,45 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
+import AuthRoute from './components/AuthRoute';
+import BasicRoute from './components/BasicRoute';
+
 import { StyledContainer } from './components/Styles';  
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
-const App = () => {
+const App = ({checked}) => {
 
     return (
        <Router>
+           {checked && 
             <StyledContainer>
                 <Switch>
-                    <Route path='/signup'>
+                    <BasicRoute path='/signup'>
                         <Signup/>
-                    </Route>
-                    <Route path='/login'>
+                    </BasicRoute>
+                    <BasicRoute path='/login'>
                         <Login/>
-                    </Route>
-                    <Route path='/dashboard'>
+                    </BasicRoute>
+                    <AuthRoute path='/dashboard'>
                         <Dashboard/>
-                    </Route>
+                    </AuthRoute>
                     <Route path='/'>
                         <Home/>
                     </Route>
                 </Switch>
                 {/* <Dashboard /> */}
             </StyledContainer>
+            }
         </Router>  
         
     );
 };
 
-export default App;
+const mapStateToProps = ({session}) => {
+    const checked = session.checked;
+    return { checked }
+}
+export default connect(mapStateToProps)(App);

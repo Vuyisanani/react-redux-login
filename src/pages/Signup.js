@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { StyledTextInput, 
+import {
     StyledFormArea, 
-    StyledFormButton, 
-    StyledLabel, 
+    StyledFormButton,  
     StyledLogo, 
     StyledTittle, 
-    StyledSubTitle, 
     colors,
     ButtonGroup,
     ExtraText,
